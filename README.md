@@ -11,9 +11,10 @@ Avant de procéder à la compilation, il convient donc de l'installer sur son en
 Le script suivant (nommé "install.sh" et lancé en root) peut être utilisé pour installer les dépendances, compiler wsssh et le placer dans le répertoire <b>/usr/local/sbin</b>.
 
 ```bash
+#!/bin/bash
 apt-get update
 apt-get install -y --no-install-recommends build-essential ca-certificates git pkg-config
-apt-get install libxml2 libxml2-dev libwebsockets-dev libmariadb-dev
+apt-get install -y --no-install-recommends libxml2 libxml2-dev libwebsockets-dev libmariadb-dev
 git clone https://github.com/vincent-lefevere/wsssh
 (cd wsssh/src ; make install) 
 ```
@@ -33,7 +34,7 @@ On lance ensuite les 5 commandes ci-dessous :
 ```bash
 docker build -t make_wsssh:current .
 docker container create --name tmp_wsssh make_wsssh:current
-docker cp -q tmp_wsssh:/usr/local/bin/wsssh - | tar -xf -
+docker cp -q tmp_wsssh:/usr/local/sbin/wsssh - | tar -xf -
 docker container rm tmp_wsssh
 docker rmi make_wsssh:current
 ```

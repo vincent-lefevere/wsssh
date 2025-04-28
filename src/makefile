@@ -17,6 +17,7 @@ all: wsssh
 
 wsssh: wsssh.o makefile
 	$(CC) $(CFLAGS) -o wsssh wsssh.o $(LDFLAGS)
+	strip wsssh
 	
 wsssh.o: wsssh.c makefile
 	$(CC) $(CFLAGS) -o wsssh.o -c wsssh.c
