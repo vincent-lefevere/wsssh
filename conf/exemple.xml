@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf8" standalone="yes" ?>
+
+<!DOCTYPE conf [
+	<!ELEMENT conf (auth?, cmd*)>
+	<!ATTLIST conf port CDATA #REQUIRED> <!-- n° de port du serveur websocket -->
+	<!ATTLIST conf uri CDATA #REQUIRED> <!-- début de l'URL de traitement -->
+	<!ATTLIST conf log CDATA #REQUIRED> <!-- fichier de mémorisation console -->
+	<!ATTLIST conf cert CDATA #REQUIRED> <!-- fichier du certificat -->
+	<!ATTLIST conf key CDATA #REQUIRED> <!-- fichier de la clef privée -->
+	<!ATTLIST conf max CDATA #REQUIRED> <!-- nombre maximum de client -->
+	<!ATTLIST conf format (bin|txt) "bin"> <!-- format d'envoie dans le websocket -->
+	<!ELEMENT auth (file|mysql|(file,mysql)|(mysql,file))>
+	<!ATTLIST auth cookie CDATA #REQUIRED> <!-- nom du cookie utilisé pour recevoir le token -->
+	<!ELEMENT file (#PCDATA)> <!-- fichier des tokens valides -->
+	<!ELEMENT mysql (#PCDATA)> <!-- requête SQL de récupération des tokens valides -->
+	<!ATTLIST mysql host CDATA #REQUIRED> <!-- serveur MySQL -->
+	<!ATTLIST mysql user CDATA #REQUIRED> <!-- utilisateur MySQL -->
+	<!ATTLIST mysql pwd CDATA #REQUIRED> <!-- mot de passe MySQL -->
+	<!ATTLIST mysql db CDATA #REQUIRED> <!-- Base de données -->
+	<!ELEMENT cmd (#PCDATA)> <!-- Commande shell à exécuter -->
+	<!ATTLIST cmd name CDATA #REQUIRED> <!-- fin de l'URL de traitement -->
+	<!ATTLIST cmd uid CDATA #REQUIRED> <!-- uid exécutant la commande -->
+	<!ATTLIST cmd gid CDATA #REQUIRED> <!-- gid exécutant la commande -->
+]>
+
+<conf port="8000" uri="/URI/" log="/tmp/cmd.log" cert="" key="" max="10" format="bin">
+	<auth cookie="token">
+		<file>/etc/wsssh/tokens</file>
+		<mysql host="localhost" user="root" pwd="" db="database">SELECT 1 FROM security WHERE token='%s'</mysql>
+	</auth>
+	<cmd name="ls" uid="1010" gid="1010">TERM=xterm ls -laR /tmp</cmd>
+	<cmd name="vi" uid="1010" gid="1010">TERM=xterm vi /tmp/test.txt</cmd>
+</conf>
