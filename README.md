@@ -42,7 +42,7 @@ On récupère alors le fichier "wsssh" dans le répertoire à côté des fichier
 
 ## Utilisation
 
-Ce programme nécessite un fichier de configuration écrit en XML semblable à l'exemple présent dans le répertoire [src](https://github.com/vincent-lefevere/wsssh/src).
+Ce programme nécessite un fichier de configuration écrit en XML semblable à l'exemple présent dans le répertoire [conf](https://github.com/vincent-lefevere/wsssh/conf).
 
 ### Edition du fichier de configuration
 
