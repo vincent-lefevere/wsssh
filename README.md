@@ -8,7 +8,7 @@ Avant de procéder à la compilation, il convient donc de l'installer sur son en
 
 ### via une distribution Debian
 
-Le script suivant (nommé "install.sh" et lancé en root) peut être utilisé pour installer les dépendances, compiler wsssh et le placer dans le répertoire <b>/usr/local/sbin</b>.
+Le script suivant (nommé "install.sh" et lancé en root) peut être utilisé pour installer les dépendances, compiler wsssh et le placer dans le répertoire **/usr/local/sbin**.
 
 ```bash
 #!/bin/bash
@@ -43,11 +43,11 @@ On récupère alors le fichier "wsssh" dans le répertoire à côté des fichier
 
 ## Utilisation
 
-Ce programme nécessite un fichier de configuration écrit en XML semblable à l'exemple présent dans le répertoire [conf](https://github.com/vincent-lefevere/wsssh/conf).
+Ce programme nécessite un fichier de configuration écrit en XML semblable à l'exemple présent dans le répertoire [conf](../../tree/main/conf).
 
 ### Edition du fichier de configuration
 
-Comme indiquer dans la DTD du fichier XML incluse dans le fichier exemple, la balise racine <b>\<conf\></b> contient 7 attributs :
+Comme indiquer dans la DTD du fichier XML incluse dans le fichier exemple, la balise racine **\<conf\>** contient 7 attributs :
 - port
 
     On indique un numéro de port du serveur web utilisé par l'application.
@@ -77,20 +77,20 @@ Comme indiquer dans la DTD du fichier XML incluse dans le fichier exemple, la ba
 
 	On indique l'une des deux valeurs "bin" ou "txt" selon que l'on souhaite utiliser le websocket pour envoyer les résultats des commandes exécutées comme un flux binaire ou un flux texte.
 
-Dans la balise racine, on peut éventuellement gérer l'authentification des clients souhaitant se connecter en y plaçant une première balise <b>\<auth\></b>. Cette balise contiendra l'attribut suivant:
+Dans la balise racine, on peut éventuellement gérer l'authentification des clients souhaitant se connecter en y plaçant une première balise **\<auth\>**. Cette balise contiendra l'attribut suivant:
 
 - cookie
 
     Cet attribut indique le nom du cookie qui servira à transmettre le token d'authetification.
 
-Selon que l'on inclut dans la balise <b>\<auth\></b> la balise <b>\<file\></b> ou bien la balise <b>\<mysql\></b> on active l'une ou l'autre des méthodes de vérification du token (voir les 2 méthodes si on inclut les 2 balises quelque soit l'ordre).
+Selon que l'on inclut dans la balise **\<auth\>** la balise **\<file\>** ou bien la balise <b>\<mysql\></b> on active l'une ou l'autre des méthodes de vérification du token (voir les 2 méthodes si on inclut les 2 balises quelque soit l'ordre).
 
--   La balise <b>\<file\></b> doit contenir, comme chaîne de caractères, le chemin d'accès au fichier contenant les tokens authorisant l'accès au serveur et donc l'exécution de commandes.
--   La balise <b>\<mysql\></b> doit contenir, comme chaîne de caractères, la requête SQL servant à vérifier si la valeur, du token reçu, figure dans la table des autorisations d'accès.
+-   La balise **\<file\>** doit contenir, comme chaîne de caractères, le chemin d'accès au fichier contenant les tokens authorisant l'accès au serveur et donc l'exécution de commandes.
+-   La balise **\<mysql\>** doit contenir, comme chaîne de caractères, la requête SQL servant à vérifier si la valeur, du token reçu, figure dans la table des autorisations d'accès.
 
 	Dans la requête SQL inscrite, "%s" sera remplacé par la valeur du token reçu.
 	
-	Les attributs de la balise <b>\<mysql\></b> sont utilisés pour définir les paramètres d'accès au serveur de base de données MySQL. C'est à dire :
+	Les attributs de la balise **\<mysql\>** sont utilisés pour définir les paramètres d'accès au serveur de base de données MySQL. C'est à dire :
 
     -   host
     
@@ -108,8 +108,8 @@ Selon que l'on inclut dans la balise <b>\<auth\></b> la balise <b>\<file\></b> o
     
         Cet attribut indique le nom de la base de données sur laquelle les requêtes doivent être effectuées.
 
-Enfin dans la racine, on place plusieurs (une par commande que l'on prévoit) balises <b>\<cmd\></b>. Chaque balise doit contenir, comme chaîne de caractères, la commande shell qui sera exécutée.
-On utilise les attributs, de la balise <b>\<cmd\></b>, pour spécifier différentes informations complémentaires :
+Enfin dans la racine, on place plusieurs (une par commande que l'on prévoit) balises **\<cmd\>**. Chaque balise doit contenir, comme chaîne de caractères, la commande shell qui sera exécutée.
+On utilise les attributs, de la balise **\<cmd\>**, pour spécifier différentes informations complémentaires :
 
 -   name
 
