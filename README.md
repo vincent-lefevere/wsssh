@@ -83,7 +83,7 @@ Dans la balise racine, on peut éventuellement gérer l'authentification des cli
 
     Cet attribut indique le nom du cookie qui servira à transmettre le token d'authetification.
 
-Selon que l'on inclut dans la balise **\<auth\>** la balise **\<file\>** ou bien la balise <b>\<mysql\></b> on active l'une ou l'autre des méthodes de vérification du token (voir les 2 méthodes si on inclut les 2 balises quelque soit l'ordre).
+Selon que l'on inclut dans la balise **\<auth\>** la balise **\<file\>** ou bien la balise **\<mysql\>** on active l'une ou l'autre des méthodes de vérification du token (voir les 2 méthodes si on inclut les 2 balises quelque soit l'ordre).
 
 -   La balise **\<file\>** doit contenir, comme chaîne de caractères, le chemin d'accès au fichier contenant les tokens authorisant l'accès au serveur et donc l'exécution de commandes.
 -   La balise **\<mysql\>** doit contenir, comme chaîne de caractères, la requête SQL servant à vérifier si la valeur, du token reçu, figure dans la table des autorisations d'accès.
