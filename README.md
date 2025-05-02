@@ -58,7 +58,7 @@ Comme indiquer dans la DTD du fichier XML incluse dans le fichier exemple, la ba
 
 - log
 
-	On indique le chemin du fichier servant de buffer de stockage du résultat de la commande exécutée afin de pouvoir l'envoyé aux autres clients qui se connectent ou la réenvoyer.
+	On indique le chemin du fichier servant de buffer de stockage du résultat de la commande exécutée afin de pouvoir l'envoyé aux autres clients qui se connectent ou la ré-envoyer.
 
 - cert
 
@@ -71,7 +71,7 @@ Comme indiquer dans la DTD du fichier XML incluse dans le fichier exemple, la ba
 
 - max
 
-	On indique le nombre de client ayant la possiblité de ce connecter simultannément au serveur pour recevoir une copie du résultat de la commande exécutée.
+	On indique le nombre de client ayant la possibilité de ce connecter simultanément au serveur pour recevoir une copie du résultat de la commande exécutée.
 
 - format
 
@@ -81,11 +81,11 @@ Dans la balise racine, on peut éventuellement gérer l'authentification des cli
 
 - cookie
 
-    Cet attribut indique le nom du cookie qui servira à transmettre le token d'authetification.
+    Cet attribut indique le nom du cookie qui servira à transmettre le token d'authentification.
 
 Selon que l'on inclut dans la balise **\<auth\>** la balise **\<file\>** ou bien la balise **\<mysql\>** on active l'une ou l'autre des méthodes de vérification du token (voir les 2 méthodes si on inclut les 2 balises quelque soit l'ordre).
 
--   La balise **\<file\>** doit contenir, comme chaîne de caractères, le chemin d'accès au fichier contenant les tokens authorisant l'accès au serveur et donc l'exécution de commandes.
+-   La balise **\<file\>** doit contenir, comme chaîne de caractères, le chemin d'accès au fichier contenant les tokens autorisant l'accès au serveur et donc l'exécution de commandes.
 -   La balise **\<mysql\>** doit contenir, comme chaîne de caractères, la requête SQL servant à vérifier si la valeur, du token reçu, figure dans la table des autorisations d'accès.
 
 	Dans la requête SQL inscrite, "%s" sera remplacé par la valeur du token reçu.
